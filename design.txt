@@ -1,0 +1,19 @@
+
+strikeInfo
+	id
+	date
+	creator
+	motivo
+
+personInfo 
+	contactId
+	firstName
+	lastName
+	username
+	email
+	password
+
+rPersonStrike
+	contactId
+	strikeId
+	
