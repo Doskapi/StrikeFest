@@ -1,19 +1,55 @@
 
+CREATE DATABASE sf;
+USE sf;
+
+/*
 strikeInfo
 	id
-	date
-	creator
-	motivo
+	creationDate
+	creatorId
+	title
+	reason
+*/
 
+CREATE TABLE strikeInfo (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	creationDate TIMESTAMP,
+	creatorId INT(6) UNSIGNED,
+	title TINYTEXT,
+	reason TEXT
+);
+
+/*
 personInfo 
-	contactId
+	id
 	firstName
 	lastName
 	username
+	creationDate
 	email
-	password
 
+	FALTAN
+	password
+*/
+
+CREATE TABLE personInfo (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	firstname VARCHAR(30) NOT NULL,
+	lastname VARCHAR(30) NOT NULL,
+	creationDate TIMESTAMP,
+	email VARCHAR(50)
+);
+
+/*
 rPersonStrike
-	contactId
+	personId
 	strikeId
-	
+*/
+CREATE TABLE rPersonStrike (
+  personId INT(6) UNSIGNED not null,  
+  strikeId INT(6) UNSIGNED not null,  
+  primary key (personId , strikeId )
+);
+
+
+ALTER TABLE [table] ADD COLUMN [column] int NOT NULL AUTO_INCREMENT PRIMARY KEY;
