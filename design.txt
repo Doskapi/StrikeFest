@@ -2,6 +2,7 @@
 CREATE DATABASE sf;
 USE sf;
 
+SHOW TABLES;
 /*
 strikeInfo
 	id
@@ -12,7 +13,7 @@ strikeInfo
 */
 
 CREATE TABLE strikeInfo (
-	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	creationDate TIMESTAMP,
 	creatorId INT(6) UNSIGNED,
 	title TINYTEXT,
@@ -33,11 +34,11 @@ personInfo
 */
 
 CREATE TABLE personInfo (
-	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	id INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	firstname VARCHAR(30) NOT NULL,
 	lastname VARCHAR(30) NOT NULL,
 	creationDate TIMESTAMP,
-	email VARCHAR(50)
+	email VARCHAR(50) UNIQUE
 );
 
 /*
@@ -46,10 +47,21 @@ rPersonStrike
 	strikeId
 */
 CREATE TABLE rPersonStrike (
-  personId INT(6) UNSIGNED not null,  
-  strikeId INT(6) UNSIGNED not null,  
+  personId INT(6) UNSIGNED NOT NULL,  
+  strikeId INT(6) UNSIGNED NOT NULL,  
   primary key (personId , strikeId )
 );
 
 
 ALTER TABLE [table] ADD COLUMN [column] int NOT NULL AUTO_INCREMENT PRIMARY KEY;
+
+CREATE TABLE accounts(
+    account_id INT NOT NULL AUTO_INCREMENT,
+    customer_id INT( 4 ) NOT NULL ,
+    account_type ENUM( 'savings', 'credit' ) NOT NULL,
+    balance FLOAT( 9 ) NOT NULL,
+    PRIMARY KEY ( account_id ), 
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id) 
+) ENGINE=INNODB;
+
+
