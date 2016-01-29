@@ -1,10 +1,9 @@
 <?php
 // Get a connection for the database
-require_once('../mysqli_connect.php');
+require_once('mysqli_connect.php');
 
 // Create a query for the database
-$query = "SELECT first_name, last_name, email, street, city, state, zip,
-phone, birth_date FROM students";
+$query = "SELECT id, firstName, lastName, creationDate, email FROM personInfo";
 
 // Get a response from the database by sending the connection
 // and the query
@@ -16,22 +15,19 @@ if($response){
 	echo '<table align="left"
 	cellspacing="5" cellpadding="8">
 
-	<tr><td align="left"><b>First Name</b></td>
-	<td align="left"><b>Id</b></td>
+	<tr>
 	<td align="left"><b>firstName</b></td>
 	<td align="left"><b>lastName</b></td>
-	<td align="left"><b>CreationDate</b></td>
-	<td align="left"><b>Email</b></td></tr>';
+	<td align="left"><b>Email</b></td>
+	</tr>';
 
 	// mysqli_fetch_array will return a row of data from the query
 	// until no further data is available
 	while($row = mysqli_fetch_array($response)){
 
 	echo '<tr><td align="left">' . 
-	$row['id'] . '</td><td align="left">' . 
 	$row['firstName'] . '</td><td align="left">' . 
 	$row['lastName'] . '</td><td align="left">' .
-	$row['creationDate'] . '</td><td align="left">' .
 	$row['email'] . '</td><td align="left">';
 
 	echo '</tr>';
@@ -41,9 +37,9 @@ if($response){
 
 } else {
 
-echo "Couldn't issue database query<br />";
+	echo "Couldn't issue database query<br />";
 
-echo mysqli_error($dbc);
+	echo mysqli_error($dbc);
 
 }
 

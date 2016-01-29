@@ -47,18 +47,18 @@ if(isset($_POST['submit'])){
 
     if(empty($data_missing)){
         
-        require_once('../mysqli_connect.php');
+        require_once('mysqli_connect.php');
         
         $query = "INSERT INTO personInfo (firstName,lastName,email,creationDate) VALUES (?, ?, ?, NOW())";
         
         $stmt = mysqli_prepare($dbc, $query);
         
-        i Integers
-        d Doubles
-        b Blobs
-        s Everything Else
+       // i Integers
+       // d Doubles
+       // b Blobs
+       // s Everything Else
         
-        mysqli_stmt_bind_param($stmt, "sss", $f_name,$l_name, $email);
+        mysqli_stmt_bind_param($stmt, "sss", $f_name, $l_name, $email);
         
         mysqli_stmt_execute($stmt);
         

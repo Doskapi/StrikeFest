@@ -8,11 +8,11 @@
 <b>Add a New Person</b>
 
 <p>First Name:
-<input type="text" name="first_name" size="30" value="" />
+<input type="text" name="firstName" size="30" value="" />
 </p>
 
 <p>Last Name:
-<input type="text" name="last_name" size="30" value="" />
+<input type="text" name="lastName" size="30" value="" />
 </p>
 
 <p>Email:
@@ -23,6 +23,12 @@
 <input type="submit" name="submit" value="Send" />
 </p>
 
+
 </form>
+<br>
+ 
+<a href="http://localhost/getpersoninfo.php">View Users</a> 
+
+
 </body>
 </html>

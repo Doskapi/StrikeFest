@@ -78,8 +78,12 @@ INSERT INTO rPersonStrike (personId,strikeId) VALUES (46,11),(83,57),(73,16),(64
 INSERT INTO rPersonStrike (personId,strikeId) VALUES (48,99),(60,85),(93,55),(79,3),(28,34),(46,82),(89,95),(52,23),(87,35),(42,46),(55,33),(68,53),(84,74),(54,96),(68,63),(92,71),(8,43),(20,32),(1,62),(57,51);
 INSERT INTO rPersonStrike (personId,strikeId) VALUES (54,30),(61,6),(83,60),(87,55),(5,97),(32,9),(7,23),(59,84),(16,55),(21,10),(20,92),(36,89),(65,56),(91,15),(39,4),(20,53),(24,12),(16,5),(93,59),(17,45);
 
-/*
 
+
+
+GRANT INSERT, SELECT, DELETE, UPDATE ON sf.* TO 'striker'@'localhost' IDENTIFIED BY 'jaleapatinosa';
+
+/*
 ALTER TABLE [table] ADD COLUMN [column] int NOT NULL AUTO_INCREMENT PRIMARY KEY;
 
 CREATE TABLE accounts(
